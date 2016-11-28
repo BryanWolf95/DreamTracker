@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 logs
 target
 /.idea
@@ -7,3 +8,20 @@ target
 /.settings
 /RUNNING_PID
 /.nb-play.properties
+=======
+# Ignore Play! working directory #
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.eml
+/dist/
+.cache
+>>>>>>> f7a1219fc9009c2ffa1624365db889c724b613ff
