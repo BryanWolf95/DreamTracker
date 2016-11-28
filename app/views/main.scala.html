@@ -1,0 +1,56 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(connected: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>Chat</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.7.1.min.js")" ></script>
+    </head>
+    <body>
+        <div class="topbar">
+            <div class="fill">
+                <div class="container">
+                    <a class="brand" href="@routes.HomeController.index()">Websocket Chat-Room</a>
+                    
+                    @if(connected != null) {
+                        <p class="pull-right">
+                            Logged in as @connected —
+                            <a href="@routes.HomeController.index()">Disconnect</a>
+                        </p>
+                    } else {
+                        <form action="@routes.HomeController.chatRoom()" class="pull-right">
+                            <input id="username" name="username" class="input-small" type="text" placeholder="Username">
+                            <button class="btn" type="submit">Sign in</button>
+                        </form>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="content">
+                @content
+            </div>
+
+            <footer>
+                <p>
+                    <a href="http://www.playframework.com">www.playframework.com</a>
+                </p>
+            </footer>
+
+        </div>
+
+    </body>
+</html>
